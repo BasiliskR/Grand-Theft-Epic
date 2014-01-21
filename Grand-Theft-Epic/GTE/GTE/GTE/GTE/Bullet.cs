@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace GTE
 {
     public enum Bullet_Type
     {
-        sniper,rifle,gun,bazooka
+        sniper_bullet,rifle_bullet,gun_bullet,bazooka_bullet
     }
     public class Bullet
     {
@@ -42,5 +43,74 @@ namespace GTE
 
 
         //METHODS
+        public int Damage(Bullet_Type type)
+        {
+            Random rand = new Random();
+            int jet = rand.Next(0, 100);
+            int damage = 0;
+            if (type == Bullet_Type.sniper_bullet)
+            {
+                damage = 70;
+                int critical_bonus_rate = 50;
+                int critical_rate = 33;
+                if (jet >= critical_rate)
+                {
+                    damage = damage + damage * critical_bonus_rate / 100;
+                }
+                return damage;
+            }
+            else
+                if (type == Bullet_Type.rifle_bullet)
+                {
+                    damage = 10;
+                    int critical_bonus_rate = 20;
+                    int critical_rate = 20;
+                    if (jet >= critical_rate)
+                    {
+                        damage = damage + damage * critical_bonus_rate / 100;
+                    }
+                    return damage;
+                }
+                else
+                    if (type == Bullet_Type.gun_bullet)
+                    {
+                        damage = 5;
+                        int critical_bonus_rate = 10;
+                        int critical_rate = 30;
+                        if (jet >= critical_rate)
+                        {
+                            damage = damage + damage * critical_bonus_rate / 100;
+                        }
+                        return damage;
+                    }
+                    else
+                        if (type == Bullet_Type.bazooka_bullet)
+                        {
+                            damage = 100;
+                            int critical_bonus_rate = 1;
+                            int critical_rate = 5;
+                            if (jet >= critical_rate)
+                            {
+                                damage = damage + damage * critical_bonus_rate / 100;
+                            }
+                            return damage;
+                        }
+                        else
+                            return damage;
+        }
+
+        public void Initialize()
+        {
+
+        }
+        public void Update()
+        {
+
+        }
+        public void Draw(SpriteBatch spritebatch)
+        {
+
+        }
+
     }
 }
