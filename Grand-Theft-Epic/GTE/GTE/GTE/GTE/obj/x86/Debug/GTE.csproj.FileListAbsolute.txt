@@ -1,0 +1,6 @@
+C:\Users\AbdoulPC\Documents\GitHub\Gran-Threft-Epic\GTE\GTE\GTE\GTE\bin\x86\Debug\GTE.exe
+C:\Users\AbdoulPC\Documents\GitHub\Gran-Threft-Epic\GTE\GTE\GTE\GTE\bin\x86\Debug\GTE.pdb
+C:\Users\AbdoulPC\Documents\GitHub\Gran-Threft-Epic\GTE\GTE\GTE\GTE\obj\x86\Debug\GTE.csprojResolveAssemblyReference.cache
+C:\Users\AbdoulPC\Documents\GitHub\Gran-Threft-Epic\GTE\GTE\GTE\GTE\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\AbdoulPC\Documents\GitHub\Gran-Threft-Epic\GTE\GTE\GTE\GTE\obj\x86\Debug\GTE.exe
+C:\Users\AbdoulPC\Documents\GitHub\Gran-Threft-Epic\GTE\GTE\GTE\GTE\obj\x86\Debug\GTE.pdb
