@@ -12,10 +12,10 @@ namespace GTE
     {
         //FIELDS
 
-       int _screenheight, _screenwidth;
+       int _screenheight;
+       int _screenwidth;
        private float Rotationangle;
-       private Vector2 origin;
-       private Vector2 distance;
+       private Vector2 origin,distance,position;
 
         private Rectangle rec_player;
         public Rectangle Rec_Player
@@ -51,13 +51,13 @@ namespace GTE
         }
 
         //CONSTRUCTORS
-        public Player (Game1 game,int pv_max, int pv)
+        public Player(Game1 game, int pv_max, int pv, int screenheight, int screenwidth)
         {
             this.game = game;
             this.pv_max = pv_max;
             this.pv = pv;
-            _screenwidth = game.screenwidth;
-            _screenheight = game.screenheight;
+            _screenheight = screenheight;
+            _screenwidth = screenwidth;
         }
 
         //METHODS
@@ -75,6 +75,7 @@ namespace GTE
             distance.X = mouse.X - rec_player.X;
             distance.Y = mouse.Y - rec_player.Y;
             Rotationangle = (float)Math.Atan2(distance.Y, distance.X);
+            Rotationangle = (float)Math.PI / 2 + Rotationangle;
             origin = new Vector2((rec_player.Width / 2), (rec_player.Height / 2));
 
         }
@@ -87,8 +88,9 @@ namespace GTE
 
         public void Initialize()
         {
-            rec_pointer = new Rectangle(_screenwidth / 2, (_screenheight / 2) - 200, 46, 46);
-                
+            rec_pointer = new Rectangle(_screenwidth / 2, (_screenheight / 2) , 23, 24);
+            rec_player = new Rectangle(_screenwidth / 2, _screenheight / 2, 29, 30);
+            position = new Vector2(_screenwidth / 2, _screenheight / 2);
         }
 
         public void Update()
@@ -98,6 +100,7 @@ namespace GTE
 
         public void Draw(SpriteBatch spritebatch)
         {
+            spritebatch.Draw(Resources.texture_player, position, new Rectangle(0, 0, 29, 30), Color.White, Rotationangle , origin, 1f, SpriteEffects.None, 0);
             spritebatch.Draw(Resources.texture_pointer,rec_pointer,new Rectangle(0,0,23,24),Color.White);
         }
 

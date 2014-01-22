@@ -25,8 +25,8 @@ namespace GTE
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-           screenwidth = Window.ClientBounds.Width;
-           screenheight = Window.ClientBounds.Height;
+           screenwidth = graphics.PreferredBackBufferWidth;
+           screenheight = graphics.PreferredBackBufferHeight;
         }
 
         /// <summary>
@@ -40,7 +40,8 @@ namespace GTE
             // TODO: Add your initialization logic here
 
             base.Initialize();
-            player = new Player(this, 100, 100);
+            player = new Player(this, 100, 100, screenheight, screenwidth);
+            player.Initialize();
         }
 
         /// <summary>
@@ -77,7 +78,7 @@ namespace GTE
                 this.Exit();
 
             // TODO: Add your update logic here
-
+            player.Update();
             base.Update(gameTime);
         }
 
