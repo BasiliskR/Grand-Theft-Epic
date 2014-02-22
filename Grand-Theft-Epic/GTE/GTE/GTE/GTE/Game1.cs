@@ -20,6 +20,10 @@ namespace GTE
         SpriteBatch spriteBatch;
         Player player;
         public int screenheight, screenwidth;
+        
+        //Son
+        Song song_menu, song_game, song_arena;
+
 
         public Game1()
         {
@@ -40,7 +44,7 @@ namespace GTE
             // TODO: Add your initialization logic here
 
             base.Initialize();
-            player = new Player(this, 100, 100);
+            player = new Player(this, 100, 100, Weapon_Type.fist);//arme pour tester, amenée à être supprimée ?
         }
 
         /// <summary>
@@ -53,7 +57,14 @@ namespace GTE
             spriteBatch = new SpriteBatch(GraphicsDevice);
             Resources.LoadContent(Content);
 
+            //Possibilité inclure dans Update() = ca rame du boule !!
+            //if (GameState==...)
+            MediaPlayer.Play(song_game);
+            MediaPlayer.IsRepeating = true;
+            
+
             // TODO: use this.Content to load your game content here
+            song_game = Content.Load<Song>("song_game");
         }
 
         /// <summary>
