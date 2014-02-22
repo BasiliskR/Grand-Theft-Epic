@@ -49,13 +49,21 @@ namespace GTE
             get { return pv_max; }
             set { pv = value; }
         }
+        
+         private Weapon_Type weapon;
+         public Weapon_Type Weapon
+         {
+             get { return weapon; }
+             set { weapon = value; }
+         }
 
         //CONSTRUCTORS
-        public Player (Game1 game,int pv_max, int pv)
+        public Player (Game1 game,int pv_max, int pv, Weapon_Type weapon)
         {
             this.game = game;
             this.pv_max = pv_max;
             this.pv = pv;
+            this.weapon = weapon;
             _screenwidth = game.screenwidth;
             _screenheight = game.screenheight;
         }
@@ -81,6 +89,11 @@ namespace GTE
 
         public void Tirer(MouseState mouse)
         {
+            if (Mouse.GetState().LeftButton == ButtonState.Pressed)
+            {
+                //new Bullet(BulletOf(weapon), 
+                //Weapons.SoundOf(this.weapon).Play();
+            }
 
         }
 
@@ -94,6 +107,7 @@ namespace GTE
         public void Update()
         {
             Orienter(Mouse.GetState());
+            Tirer(Mouse.GetState(), Weapon);
         }
 
         public void Draw(SpriteBatch spritebatch)
