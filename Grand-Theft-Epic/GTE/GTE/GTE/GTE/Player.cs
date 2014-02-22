@@ -107,7 +107,7 @@ namespace GTE
         public void Update()
         {
             Orienter(Mouse.GetState());
-            Tirer(Mouse.GetState(), Weapon);
+            Tirer(Mouse.GetState());
         }
 
         public void Draw(SpriteBatch spritebatch)
